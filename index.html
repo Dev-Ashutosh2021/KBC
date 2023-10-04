@@ -15,19 +15,20 @@
             width: 100%;
             height: 100%;
         }
-
+        
         .container{
             height: 500px;
             width: 400px;
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 70px;
             align-items: center;
             justify-content: center;
         }
 
         h1{
             text-align: center;
+            font-size: 50px;
         }
 
         .box{
@@ -55,34 +56,8 @@
         <div class="container">
             <h1>Welcome to</h1>
             <img src="Kaun_Banega_Crorepati.jpg" alt="">
-            <button>Aarambh Kiya Jaaye</button>
+            <a href="questions.html"><button>Aarambh Kiya Jaaye</button></a>
         </div>
     </div>
-    <script>
-        const questions = [
-    "What is the capital of France?",
-    "Which planet is known as the Red Planet?",
-    "Who wrote the play 'Romeo and Juliet'?",
-    "What is the largest mammal in the world?",
-    "Which gas is most abundant in Earth's atmosphere?"
-];
-
-const options = [
-    ["London", "Paris", "Berlin", "Madrid"],
-    ["Earth", "Mars", "Venus", "Jupiter"],
-    ["William Shakespeare", "Charles Dickens", "Jane Austen", "Leo Tolstoy"],
-    ["Elephant", "Giraffe", "Blue Whale", "Hippopotamus"],
-    ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"]
-];
-
-const correctAnswers = [
-    "Paris",
-    "Mars",
-    "William Shakespeare",
-    "Blue Whale",
-    "Nitrogen"
-];
-
-    </script>
 </body>
 </html>
