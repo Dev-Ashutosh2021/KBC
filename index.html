@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBC</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,body,.box{
+            width: 100%;
+            height: 100%;
+        }
+
+        .container{
+            height: 500px;
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        .box{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        image{
+            height: 300px;
+        }
+
+        button{
+            width: 200px;
+            height: 40px;
+            background-color: green;
+            color: white;
+            font-size: 17px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="container">
+            <h1>Welcome to</h1>
+            <img src="Kaun_Banega_Crorepati.jpg" alt="">
+            <button>Aarambh Kiya Jaaye</button>
+        </div>
+    </div>
+    <script>
+        const questions = [
+    "What is the capital of France?",
+    "Which planet is known as the Red Planet?",
+    "Who wrote the play 'Romeo and Juliet'?",
+    "What is the largest mammal in the world?",
+    "Which gas is most abundant in Earth's atmosphere?"
+];
+
+const options = [
+    ["London", "Paris", "Berlin", "Madrid"],
+    ["Earth", "Mars", "Venus", "Jupiter"],
+    ["William Shakespeare", "Charles Dickens", "Jane Austen", "Leo Tolstoy"],
+    ["Elephant", "Giraffe", "Blue Whale", "Hippopotamus"],
+    ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"]
+];
+
+const correctAnswers = [
+    "Paris",
+    "Mars",
+    "William Shakespeare",
+    "Blue Whale",
+    "Nitrogen"
+];
+
+    </script>
+</body>
+</html>
