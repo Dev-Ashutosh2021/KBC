@@ -1,9 +1,7 @@
-count = 0;
+var count=0;
 empty = "";
-selectedOption = "";
-money = 0;
-checked=false;
-correct=true;
+var selectedOption;
+money=0;
 const questions = [
     "What is the capital of France?",
     "Which planet is known as the Red Planet?",
@@ -28,63 +26,61 @@ const correctAnswers = [
     "Nitrogen"
 ];
 
-function getData() {
-    checked=false;
-    console.log(selectedOption, 1)
-    console.log(correctAnswers[count], 2)
-    if (selectedOption == correctAnswers[count-1]) {
-        console.log("correct answer")
-        money += 1000;
-        correct=false;
-        document.getElementById("money").innerText = money;
-    }
-
-    console.log(count);
-    if (count == questions.length) {
-        count=0;
-        alert("Game Ended, You won "+money+" Rupees!");
-        window.location.href = 'index.html';
-        return;
-    }
+function loadQuestion() {
     document.getElementById("ques").innerText = (count + 1) + ". " + questions[count];
     for (i = 0; i < 4; i++) {
-        empty += ` <input type="radio" name="option" value="${options[count][i]}" id="option${i + 1}" onclick="getAnswer()"><label for="option${i + 1}"> ${options[count][i]}</label><br>`;
+        empty += ` <input type="radio" name="option" value="${options[count][i]}" id="option${i + 1}" onclick="getValue()"><label for="option${i + 1}"> ${options[count][i]}</label><br>`;
     }
     document.getElementById("option").innerHTML = empty;
     empty = "";
     count++;
 }
 
-
-function getAnswer() {
+function getValue() {
     var radioButtons = document.getElementsByName("option");
 
     for (var i = 0; i < radioButtons.length; i++) {
         if (radioButtons[i].checked) {
             selectedOption = radioButtons[i].value
-            console.log(selectedOption);
+            console.log(selectedOption,1);
             // var selectedValue = radioButtons[i].value;
             // alert("Selected option: " + selectedValue);
-            checked=true;
+            // checked = true;
         }
     }
 }
 
-function validate()
-{
-    if(checked==true)
+
+function checkAnswer() {
+    // console.log(selectedOption,2);
+    // console.log(correctAnswers[count-1],3);
+    if(count<correctAnswers.length)
     {
-        if(correct==false)
-    {
-        alert('Afsos galat jawab aap jeete h '+money+' rupees');
-        window.location.href = 'index.html';
-        return
-    }
-        getData();
+        if (selectedOption == null) {
+            alert("Please select an option before submitting.");
+          } else {
+              if ((correctAnswers[count-1] == selectedOption)) {
+                  money+=1000;
+                //   console.log(count);
+                  document.getElementById("money").innerText = money;
+                  loadQuestion();
+              }
+              else
+              {
+                  alert("Afsos galat jawab aap jeete h ₹ " + money);
+                  window.location.href = 'index.html';
+                  money=0;
+              }
+          }
     }
     else
     {
-        alert("No option is selected, please select any option");
-    }
-
-}
+        money=money*2;
+        document.getElementById("money").innerText = money;
+        alert("Congratulations! You've completed the game and won ₹ " + money);
+        setTimeout(function() {
+            window.location.href = 'index.html';
+          }, 1000);
+    } 
+    selectedOption=null;
+  }
